@@ -1,5 +1,5 @@
 import test from 'ava';
-import indentString from './index.js';
+import indentString from './esm/index.js';
 
 test('throw if input is not a string', t => {
 	t.throws(() => {
@@ -52,7 +52,7 @@ test('not indent whitespace only lines', t => {
 	t.is(indentString('foo\nbar\n', 1, {includeEmptyLines: null}), ' foo\n bar\n');
 });
 
-test('indent every line if options.includeEmptyLines is true', t => {
+test('indent every line if options.blank is true', t => {
 	t.is(indentString('foo\n\nbar\n	', 1, {includeEmptyLines: true}), ' foo\n \n bar\n 	');
 });
 
