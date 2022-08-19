@@ -1,74 +1,52 @@
-# indent-string
+# @esm2cjs/indent-string
 
-> Indent each line in a string
+This is a fork of https://github.com/sindresorhus/indent-string, but automatically patched to support ESM **and** CommonJS, unlike the original repository.
 
 ## Install
 
+You can use an npm alias to install this package under the original name:
+
 ```
-$ npm install indent-string
+npm i indent-string@npm:@esm2cjs/indent-string
+```
+
+```jsonc
+// package.json
+"dependencies": {
+    "indent-string": "npm:@esm2cjs/indent-string"
+}
+```
+
+but `npm` might dedupe this incorrectly when other packages depend on the replaced package. If you can, prefer using the scoped package directly:
+
+```
+npm i @esm2cjs/indent-string
+```
+
+```jsonc
+// package.json
+"dependencies": {
+    "@esm2cjs/indent-string": "^ver.si.on"
+}
 ```
 
 ## Usage
 
 ```js
-import indentString from 'indent-string';
+// Using ESM import syntax
+import indentString from "@esm2cjs/indent-string";
 
-indentString('Unicorns\nRainbows', 4);
-//=> '    Unicorns\n    Rainbows'
-
-indentString('Unicorns\nRainbows', 4, {indent: '♥'});
-//=> '♥♥♥♥Unicorns\n♥♥♥♥Rainbows'
+// Using CommonJS require()
+const indentString = require("@esm2cjs/indent-string").default;
 ```
 
-## API
+> **Note:**
+> Because the original module uses `export default`, you need to append `.default` to the `require()` call.
 
-### indentString(string, count?, options?)
+For more details, please see the original [repository](https://github.com/sindresorhus/indent-string).
 
-#### string
+## Sponsoring
 
-Type: `string`
+To support my efforts in maintaining the ESM/CommonJS hybrid, please sponsor [here](https://github.com/sponsors/AlCalzone).
 
-The string to indent.
-
-#### count
-
-Type: `number`\
-Default: `1`
-
-How many times you want `options.indent` repeated.
-
-#### options
-
-Type: `object`
-
-##### indent
-
-Type: `string`\
-Default: `' '`
-
-The string to use for the indent.
-
-##### includeEmptyLines
-
-Type: `boolean`\
-Default: `false`
-
-Also indent empty lines.
-
-## Related
-
-- [indent-string-cli](https://github.com/sindresorhus/indent-string-cli) - CLI for this module
-- [strip-indent](https://github.com/sindresorhus/strip-indent) - Strip leading whitespace from every line in a string
-- [redent](https://github.com/sindresorhus/redent) - Strip redundant indentation and indent the string
-
----
-
-<div align="center">
-	<b>
-		<a href="https://tidelift.com/subscription/pkg/npm-indent-string?utm_source=npm-indent-string&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
-	</b>
-	<br>
-	<sub>
-		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
-	</sub>
-</div>
+To support the original author of the module, please sponsor [here](https://github.com/sindresorhus/indent-string).
